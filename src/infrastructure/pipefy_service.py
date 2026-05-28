@@ -26,7 +26,7 @@ class PipefyClient(PipefyClientInterface):
         payload = {
             "query": mutation
         }
-        print(f"[PIPEFY MOCK] Enviando CreateCard:\n{mutation.strip()}")
+        print(f"[PIPEFY MOCK] Enviando createCard:\n{mutation.strip()}")
      
     
     def update_card_field(self, card_id: str, field_id: str, new_value: str) -> None:
@@ -47,4 +47,4 @@ class PipefyClient(PipefyClientInterface):
         payload = {
             "query": mutation
         }
-        print(f"[PIPEFY MOCK] Enviando UpdateCardField:\n{mutation.strip()}")
+        print(f"[PIPEFY MOCK] Enviando updateCardField:\n{mutation.strip()}")
