@@ -14,9 +14,7 @@ class PipefyClient(PipefyClientInterface):
                 fields_attributes:[
                     {{field_id: "cliente_nome", field_value: "{client.nome}"}},
                     {{field_id: "cliente_email", field_value: "{client.email}"}},
-                    {{field_id: "tipo_solicitacao", field_value: "{client.tipo_solicitacao}"}},
-                    {{field_id: "valor_patrimonio", field_value: {client.valor_patrimonio}}},
-                    {{field_id: "prioridade", field_value: "{client.prioridade}"}} 
+                    {{field_id: "valor_patrimonio", field_value: {client.valor_patrimonio}}}         
                 ]
             }}){{
                 card {{
