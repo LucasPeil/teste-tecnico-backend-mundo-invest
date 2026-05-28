@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from src.domain.models import Client, Event
 
-class ClientRepository(ABC):
+class ClientRepositoryInterface(ABC):
     @abstractmethod
     def save(self,client: Client) -> Client:
         pass
@@ -14,7 +14,7 @@ class ClientRepository(ABC):
     def get_by_email(self,cliente_email: str)-> Client:
         pass
 
-class EventRepository(ABC):
+class EventRepositoryInterface(ABC):
     @abstractmethod
     def save_event(self, event: Event) -> None:
         pass

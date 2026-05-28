@@ -10,14 +10,30 @@ Este projeto é uma API desenvolvida com **FastAPI** para gerenciamento de clien
 
 ### Passo a passo para execução
 
-1. **Subir os serviços de banco de dados:**
+1. **Configurar as variáveis de ambiente (.env):**
+   Na raiz do projeto, crie um arquivo chamado `.env` e adicione as seguintes variáveis (utilizadas na conexão com o banco de dados principal e de testes):
+   ```env
+   POSTGRES_USER=usuario_do_banco_postgres
+   POSTGRES_PASSWORD=senha_do_banco_postgres
+   POSTGRES_DB=nome_do_banco_postgres
+   POSTGRES_HOST=localhost
+   POSTGRES_PORT=5432
+
+   POSTGRES_USER_TEST=usuario_do_banco_postgres
+   POSTGRES_PASSWORD_TEST=senha_do_banco_postgres
+   POSTGRES_DB_TEST=nome_do_banco_postgres
+   POSTGRES_HOST_TEST=localhost
+   POSTGRES_PORT_TEST=5433
+   ```
+
+2. **Subir os serviços de banco de dados:**
    O projeto utiliza o PostgreSQL como banco de dados. Inicie os containers de desenvolvimento e de testes executando:
    ```bash
    docker-compose up -d
    ```
    *Isso disponibilizará o banco de dados da aplicação na porta 5432 e o banco de testes na porta 5433.*
 
-2. **Configurar o ambiente virtual e dependências:**
+3. **Configurar o ambiente virtual e dependências:**
    No diretório raiz do projeto, crie e ative um ambiente virtual:
    ```bash
    # Criar o ambiente virtual (venv)
@@ -31,7 +47,7 @@ Este projeto é uma API desenvolvida com **FastAPI** para gerenciamento de clien
    pip install -r requirements.txt
    ```
 
-3. **Executar a API:**
+4. **Executar a API:**
    Com o ambiente virtual ativado, inicie o servidor:
    ```bash
     uvicorn src.presentation.api:app --reload --host 0.0.0.0 --port 8000

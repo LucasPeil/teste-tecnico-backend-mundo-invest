@@ -2,10 +2,10 @@ from typing import Optional
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 from src.domain.models import Client, Event
-from src.domain.interfaces import ClientRepository, EventRepository
+from src.domain.interfaces import ClientRepositoryInterface, EventRepositoryInterface
 from src.infrastructure.orm_models import ClientORM, EventORM
 from sqlalchemy.dialects.postgresql import insert
-class SqlClientRepository(ClientRepository):
+class SqlClientRepository(ClientRepositoryInterface):
     def __init__(self,db: Session):
         self.db = db
 
@@ -71,7 +71,7 @@ class SqlClientRepository(ClientRepository):
             prioridade=client.prioridade
         )
 
-class SqlEventRepository(EventRepository):
+class SqlEventRepository(EventRepositoryInterface):
     def __init__(self, db: Session):
         self.db = db
     

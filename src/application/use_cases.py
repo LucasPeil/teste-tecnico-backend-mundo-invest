@@ -1,9 +1,9 @@
 from src.domain.models import Client, Event
-from src.domain.interfaces import ClientRepository, EventRepository, PipefyClientInterface
+from src.domain.interfaces import ClientRepositoryInterface, EventRepositoryInterface, PipefyClientInterface
 from src.application.dtos import UseCaseResponse
 
 class CreateClientUseCase:
-    def __init__(self, client_repo: ClientRepository, pipefy_client: PipefyClientInterface):
+    def __init__(self, client_repo: ClientRepositoryInterface, pipefy_client: PipefyClientInterface):
         self.client_repo = client_repo
         self.pipefy_client = pipefy_client
 
@@ -41,7 +41,7 @@ class CreateClientUseCase:
         )
 
 class ProcessarWebhookUseCase:
-    def __init__(self, client_repo: ClientRepository, event_repo: EventRepository, pipefy_client: PipefyClientInterface):
+    def __init__(self, client_repo: ClientRepositoryInterface, event_repo: EventRepositoryInterface, pipefy_client: PipefyClientInterface):
         self.client_repo = client_repo
         self.event_repo = event_repo
         self.pipefy_client = pipefy_client
