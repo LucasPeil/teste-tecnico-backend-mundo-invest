@@ -67,7 +67,7 @@ curl -X POST -i "http://127.0.0.1:8000/clientes" \
 ```
 
 ### Endpoint 2: Processar Webhook Pipefy (`POST /webhooks/pipefy/card-updated`)
-Este endpoint simula o recebimento de eventos disparados pelo Pipefy, salvando as alterações no banco de dados e atualizando o card no Pipefy através da mutation `updateCard`.
+Este endpoint simula o recebimento de eventos disparados pelo Pipefy, salvando as alterações no banco de dados e atualizando o card no Pipefy através da mutation `updateCardField`.
 
 ```bash
 curl -X POST -i "http://127.0.0.1:8000/webhooks/pipefy/card-updated" \
