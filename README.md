@@ -10,30 +10,16 @@ Este projeto é uma API desenvolvida com **FastAPI** para gerenciamento de clien
 
 ### Passo a passo para execução
 
-1. **Configurar as variáveis de ambiente (.env):**
-   Na raiz do projeto, crie um arquivo chamado `.env` e adicione as seguintes variáveis (utilizadas na conexão com o banco de dados principal e de testes):
-   ```env
-   POSTGRES_USER=usuario_do_banco_postgres
-   POSTGRES_PASSWORD=senha_do_banco_postgres
-   POSTGRES_DB=nome_do_banco_postgres
-   POSTGRES_HOST=localhost
-   POSTGRES_PORT=5432
+> **Aviso:** O arquivo `.env` está sendo enviado para este repositório unicamente por se tratar de um teste técnico, com o objetivo de facilitar a execução e avaliação do projeto. Em um cenário real, este arquivo seria ignorado pelo Git por conter informações sensíveis.
 
-   POSTGRES_USER_TEST=usuario_do_banco_postgres
-   POSTGRES_PASSWORD_TEST=senha_do_banco_postgres
-   POSTGRES_DB_TEST=nome_do_banco_postgres
-   POSTGRES_HOST_TEST=localhost
-   POSTGRES_PORT_TEST=5433
-   ```
-
-2. **Subir os serviços de banco de dados:**
+1. **Subir os serviços de banco de dados:**
    O projeto utiliza o PostgreSQL como banco de dados. Inicie os containers de desenvolvimento e de testes executando:
    ```bash
    docker-compose up -d
    ```
    *Isso disponibilizará o banco de dados da aplicação na porta 5432 e o banco de testes na porta 5433.*
 
-3. **Configurar o ambiente virtual e dependências:**
+2. **Configurar o ambiente virtual e dependências:**
    No diretório raiz do projeto, crie e ative um ambiente virtual:
    ```bash
    # Criar o ambiente virtual (venv)
@@ -47,12 +33,11 @@ Este projeto é uma API desenvolvida com **FastAPI** para gerenciamento de clien
    pip install -r requirements.txt
    ```
 
-4. **Executar a API:**
+3. **Executar a API:**
    Com o ambiente virtual ativado, inicie o servidor:
    ```bash
     uvicorn src.presentation.api:app --reload --host 0.0.0.0 --port 8000
    ```
-   *A API estará disponível em `http://127.0.0.1:8000`.*
 
 ### Executando os Testes
 
@@ -82,7 +67,7 @@ curl -X POST -i "http://127.0.0.1:8000/clientes" \
 ```
 
 ### Endpoint 2: Processar Webhook Pipefy (`POST /webhooks/pipefy/card-updated`)
-Este endpoint simula o recebimento de eventos disparados pelo Pipefy (por exemplo, alterações em um card dentro do Pipefy).
+Este endpoint simula o recebimento de eventos disparados pelo Pipefy, salvando as alterações no banco de dados e atualizando o card no Pipefy através da mutation `updateCard`.
 
 ```bash
 curl -X POST -i "http://127.0.0.1:8000/webhooks/pipefy/card-updated" \

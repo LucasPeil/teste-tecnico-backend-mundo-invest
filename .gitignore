@@ -1,4 +1,5 @@
 # Ambientes Virtuais
+
 .venv/
 venv/
 env/
@@ -9,8 +10,9 @@ __pycache__/
 *$py.class
 
 # Configurações e Variáveis de Ambiente
-.env
-.env.*
+# *** SUBINDO O ARQUIVO .ENV PARA O GIT APENAS PELO FATO DE SER UM TESTE TÉCNICO, VISANDO FACILITAR A EXECUÇÃO DO PROJETO.***
+#.env
+#.env.*
 
 # Testes
 .pytest_cache/
